@@ -19,4 +19,27 @@
 > This is a School 42 project. The subject is available [**here**](https://github.com/arnaudderison/42-get_next_line/blob/main/en.subject.pdf).
 
 ## Goals 🎖
+
 > This project, you will learn how to use file descriptor and static variables
+
+## Usage 🛠️
+
+**1. Using it in your code**
+
+To use the function in your code, simply include its header:
+
+```C
+#include "get_next_line.h"
+```
+
+OR
+
+```C
+#include "get_next_line_bonus.h"
+```
+
+and, when compiling your code, add the source files and the required flag:
+
+```shell
+get_next_line.c get_next_line_utils.c -D BUFFER_SIZE=<size>
+```
