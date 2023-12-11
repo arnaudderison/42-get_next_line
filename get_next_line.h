@@ -6,13 +6,12 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:16:53 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/11 09:01:55 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/11 11:34:03 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_h
-//# define BUFFER_SIZE 50 // default value
+# define GET_NEXT_LINE_H
 
 # include <stdio.h> //delete
 # include <stdlib.h>

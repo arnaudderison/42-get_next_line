@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:59:42 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/11 09:48:08 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/11 13:50:49 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static char	*get_buffer_file(int fd, char *buffer)
 	}
 	return (buffer);
 }
+
 static char	*get_line(char *buffer)
 {
 	char	*line;
@@ -66,6 +67,7 @@ static char	*get_line(char *buffer)
 	ft_strlcpy(line, buffer, len + 1);
 	return (line);
 }
+
 char	*clean_buffer(char *line, char *buffer)
 {
 	int		start;
@@ -87,6 +89,7 @@ char	*clean_buffer(char *line, char *buffer)
 	free(buffer);
 	return (new_buffer);
 }
+
 char	*get_next_line(int fd)
 {
 	static char	*buffer;

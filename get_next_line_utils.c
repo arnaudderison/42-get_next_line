@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:38:19 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/11 08:41:08 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/11 11:32:14 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ char	*ft_strchr(const char *str, int charac)
 		return ((char *)str);
 	return (NULL);
 }
+
 void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;
@@ -72,10 +73,11 @@ void	ft_bzero(void *s, size_t n)
 	while (++i < n)
 		ptr[i] = '\0';
 }
+
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t len;
+	size_t	i;
+	size_t	len;
 
 	i = -1;
 	len = ft_strlen(src);
