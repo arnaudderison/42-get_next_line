@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:38:19 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/10 21:14:36 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/11 08:41:08 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,18 @@ void	ft_bzero(void *s, size_t n)
 	i = -1;
 	while (++i < n)
 		ptr[i] = '\0';
+}
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t i;
+	size_t len;
+
+	i = -1;
+	len = ft_strlen(src);
+	if (!size)
+		return (len);
+	while (++i < size - 1 && src[i])
+		dst[i] = src[i];
+	dst[i] = 0;
+	return (len);
 }
