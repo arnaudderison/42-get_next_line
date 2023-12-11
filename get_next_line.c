@@ -6,13 +6,13 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:59:42 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/11 09:07:13 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/11 09:48:08 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_join_free(char *s1, char *s2)
+static char	*ft_join_free(char *s1, char *s2)
 {
 	char	*ret;
 
@@ -21,7 +21,7 @@ char	*ft_join_free(char *s1, char *s2)
 	return (ret);
 }
 
-char	*get_buffer_file(int fd, char *buffer)
+static char	*get_buffer_file(int fd, char *buffer)
 {
 	char	*tmp_buffer;
 	int		bytes;
@@ -39,6 +39,8 @@ char	*get_buffer_file(int fd, char *buffer)
 			free(tmp_buffer);
 			return (NULL);
 		}
+		if (bytes == 0)
+			break ;
 		tmp_buffer[bytes] = 0;
 		buffer = ft_join_free(buffer, tmp_buffer);
 		if (!buffer)
@@ -46,7 +48,7 @@ char	*get_buffer_file(int fd, char *buffer)
 	}
 	return (buffer);
 }
-char	*get_line(char *buffer)
+static char	*get_line(char *buffer)
 {
 	char	*line;
 	int		len;
