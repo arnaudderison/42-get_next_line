@@ -11,3 +11,8 @@
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/arnaudderison/42-get_next_line?color=blue" />
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/arnaudderison/42-get_next_line?color=green" />
 </p>
+
+---
+
+## Goals 🎖
+> This project, you will learn how to use file descriptor and static variables
