@@ -14,5 +14,9 @@
 
 ---
 
+## About 👨‍💻
+
+> This is a School 42 project. The subject is available [**here**](https://github.com/arnaudderison/42-get_next_line/blob/main/en.subject.pdf).
+
 ## Goals 🎖
 > This project, you will learn how to use file descriptor and static variables
