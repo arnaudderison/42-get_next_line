@@ -6,16 +6,18 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:38:19 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/11 13:52:23 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/15 14:48:22 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 size_t	ft_strlen(char const *str)
 {
 	size_t	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 		i++;
@@ -52,9 +54,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strchr(const char *str, int charac)
 {
-	while (*str)
+	if (!str)
+		return (NULL);
+	while (*str || (char)charac == '\0')
 	{
-		if (*str == charac)
+		if (*str == (char)charac)
 			return ((char *)str);
 		str++;
 	}

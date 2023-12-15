@@ -6,12 +6,12 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:16:53 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/11 13:54:36 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/15 11:37:27 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <limits.h>
 # include <stdio.h> //delete

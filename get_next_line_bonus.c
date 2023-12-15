@@ -6,7 +6,7 @@
 /*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:59:42 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/11 13:57:44 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:25:54 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,21 @@ static char	*ft_join_free(char *s1, char *s2)
 {
 	char	*ret;
 
-	ret = ft_strjoin(s1, s2);
-	free(s1);
+	if (s1)
+	{
+		ret = ft_strjoin(s1, s2);
+		free(s1);
+	}
+	else
+		ret = ft_strjoin("", s2);
 	return (ret);
 }
 
-static char	*get_buffer_file(int fd, char *buffer)
+static char	*get_buffer_file(int fd, char *buffer, char *tmp_buffer)
 {
-	char	*tmp_buffer;
-	int		bytes;
+	int	bytes;
 
-	if (!buffer)
-		buffer = malloc(1);
-	tmp_buffer = malloc(BUFFER_SIZE + 1);
-	if (!tmp_buffer)
-		return (NULL);
-	while (!ft_strchr(tmp_buffer, '\n'))
+	while (!tmp_buffer || !ft_strchr(buffer, '\n'))
 	{
 		bytes = read(fd, tmp_buffer, BUFFER_SIZE);
 		if (bytes < 0)
@@ -40,12 +39,18 @@ static char	*get_buffer_file(int fd, char *buffer)
 			return (NULL);
 		}
 		if (bytes == 0)
+		{
 			break ;
-		tmp_buffer[bytes] = 0;
+		}
+		tmp_buffer[bytes] = '\0';
 		buffer = ft_join_free(buffer, tmp_buffer);
 		if (!buffer)
+		{
+			free(tmp_buffer);
 			return (NULL);
+		}
 	}
+	free(tmp_buffer);
 	return (buffer);
 }
 
@@ -82,6 +87,11 @@ char	*clean_buffer(char *line, char *buffer)
 	size = end - start;
 	if (size < 0)
 		return (NULL);
+	if (size == 0)
+	{
+		free(buffer);
+		return (NULL);
+	}
 	new_buffer = (char *)malloc(size + 1);
 	if (!new_buffer)
 		return (NULL);
@@ -93,11 +103,15 @@ char	*clean_buffer(char *line, char *buffer)
 char	*get_next_line(int fd)
 {
 	static char	*buffer[FOPEN_MAX];
+	char		*tmp_buffer;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
-	buffer[fd] = get_buffer_file(fd, buffer[fd]);
+	tmp_buffer = (char *)malloc(BUFFER_SIZE + 1);
+	if (!tmp_buffer)
+		return (NULL);
+	buffer[fd] = get_buffer_file(fd, buffer[fd], tmp_buffer);
 	line = get_line(buffer[fd]);
 	buffer[fd] = clean_buffer(line, buffer[fd]);
 	return (line);
