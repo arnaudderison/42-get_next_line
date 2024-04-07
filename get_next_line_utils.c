@@ -3,26 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:38:19 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/15 13:39:51 by arnaud           ###   ########.fr       */
+/*   Updated: 2024/04/06 21:38:40 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char const *str)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
-	if (!str)
+	if (!s)
 		return (0);
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
 	return (i);
 }
+
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -72,6 +73,8 @@ void	ft_bzero(void *s, size_t n)
 	size_t			i;
 	unsigned char	*ptr;
 
+	if (!s)
+		return ;
 	ptr = (unsigned char *)s;
 	i = -1;
 	while (++i < n)
@@ -83,6 +86,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	len;
 
+	if (!dst || !src)
+		return (0);
 	i = -1;
 	len = ft_strlen(src);
 	if (!size)

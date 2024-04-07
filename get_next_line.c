@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:59:42 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/15 15:26:37 by arnaud           ###   ########.fr       */
+/*   Updated: 2024/04/07 13:54:07 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static char	*ft_join_free(char *s1, char *s2)
 	{
 		ret = ft_strjoin(s1, s2);
 		free(s1);
+		s1 = NULL;
 	}
 	else
 		ret = ft_strjoin("", s2);
@@ -36,6 +37,7 @@ static char	*get_buffer_file(int fd, char *buffer, char *tmp_buffer)
 		if (bytes < 0)
 		{
 			free(tmp_buffer);
+			free(buffer);
 			return (NULL);
 		}
 		if (bytes == 0)
@@ -49,6 +51,7 @@ static char	*get_buffer_file(int fd, char *buffer, char *tmp_buffer)
 		}
 	}
 	free(tmp_buffer);
+	tmp_buffer = NULL;
 	return (buffer);
 }
 
@@ -88,6 +91,7 @@ char	*clean_buffer(char *line, char *buffer)
 	if (size == 0)
 	{
 		free(buffer);
+		buffer = NULL;
 		return (NULL);
 	}
 	new_buffer = (char *)malloc(size + 1);
@@ -95,6 +99,7 @@ char	*clean_buffer(char *line, char *buffer)
 		return (NULL);
 	ft_strlcpy(new_buffer, buffer + start, size + 1);
 	free(buffer);
+	buffer = NULL;
 	return (new_buffer);
 }
 
@@ -111,7 +116,6 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer = get_buffer_file(fd, buffer, tmp_buffer);
 	line = get_line(buffer);
-	printf("here");
 	buffer = clean_buffer(line, buffer);
 	return (line);
 }

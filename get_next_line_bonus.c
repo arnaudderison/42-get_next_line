@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:59:42 by arnaud            #+#    #+#             */
-/*   Updated: 2023/12/15 15:25:54 by arnaud           ###   ########.fr       */
+/*   Updated: 2024/04/07 14:49:09 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static char	*ft_join_free(char *s1, char *s2)
 	{
 		ret = ft_strjoin(s1, s2);
 		free(s1);
+		s1 = NULL;
 	}
 	else
 		ret = ft_strjoin("", s2);
@@ -39,9 +40,7 @@ static char	*get_buffer_file(int fd, char *buffer, char *tmp_buffer)
 			return (NULL);
 		}
 		if (bytes == 0)
-		{
 			break ;
-		}
 		tmp_buffer[bytes] = '\0';
 		buffer = ft_join_free(buffer, tmp_buffer);
 		if (!buffer)
@@ -51,6 +50,7 @@ static char	*get_buffer_file(int fd, char *buffer, char *tmp_buffer)
 		}
 	}
 	free(tmp_buffer);
+	tmp_buffer = NULL;
 	return (buffer);
 }
 
@@ -99,6 +99,8 @@ char	*clean_buffer(char *line, char *buffer)
 	free(buffer);
 	return (new_buffer);
 }
+
+#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
