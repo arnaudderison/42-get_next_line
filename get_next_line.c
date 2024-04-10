@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arnaudderison <arnaudderison@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:59:42 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/07 13:54:07 by aderison         ###   ########.fr       */
+/*   Updated: 2024/04/10 08:36:50 by arnaudderis      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static char	*ft_join_free(char *s1, char *s2)
 	{
 		ret = ft_strjoin(s1, s2);
 		free(s1);
-		s1 = NULL;
 	}
 	else
 		ret = ft_strjoin("", s2);
@@ -91,7 +90,6 @@ char	*clean_buffer(char *line, char *buffer)
 	if (size == 0)
 	{
 		free(buffer);
-		buffer = NULL;
 		return (NULL);
 	}
 	new_buffer = (char *)malloc(size + 1);
@@ -99,7 +97,6 @@ char	*clean_buffer(char *line, char *buffer)
 		return (NULL);
 	ft_strlcpy(new_buffer, buffer + start, size + 1);
 	free(buffer);
-	buffer = NULL;
 	return (new_buffer);
 }
 

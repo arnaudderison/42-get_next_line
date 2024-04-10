@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arnaudderison <arnaudderison@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:59:42 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/07 14:49:09 by aderison         ###   ########.fr       */
+/*   Updated: 2024/04/10 08:57:47 by arnaudderis      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,15 @@ static char	*get_buffer_file(int fd, char *buffer, char *tmp_buffer)
 	{
 		bytes = read(fd, tmp_buffer, BUFFER_SIZE);
 		if (bytes < 0)
-		{
-			free(tmp_buffer);
-			return (NULL);
-		}
+			return (free(tmp_buffer), NULL);
 		if (bytes == 0)
 			break ;
 		tmp_buffer[bytes] = '\0';
 		buffer = ft_join_free(buffer, tmp_buffer);
 		if (!buffer)
-		{
-			free(tmp_buffer);
-			return (NULL);
-		}
+			return (free(tmp_buffer), NULL);
 	}
 	free(tmp_buffer);
-	tmp_buffer = NULL;
 	return (buffer);
 }
 
@@ -77,30 +70,23 @@ char	*clean_buffer(char *line, char *buffer)
 {
 	int		start;
 	int		end;
-	int		size;
 	char	*new_buffer;
 
 	if (!line || !buffer)
 		return (NULL);
 	start = ft_strlen(line);
 	end = ft_strlen(buffer);
-	size = end - start;
-	if (size < 0)
-		return (NULL);
-	if (size == 0)
-	{
-		free(buffer);
-		return (NULL);
-	}
-	new_buffer = (char *)malloc(size + 1);
+	if (end - start < 0)
+		return (free(buffer), NULL);
+	if (end - start == 0)
+		return (free(buffer), NULL);
+	new_buffer = (char *)malloc(end - start + 1);
 	if (!new_buffer)
 		return (NULL);
-	ft_strlcpy(new_buffer, buffer + start, size + 1);
+	ft_strlcpy(new_buffer, buffer + start, end - start + 1);
 	free(buffer);
 	return (new_buffer);
 }
-
-#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
