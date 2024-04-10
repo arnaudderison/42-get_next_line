@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:38:19 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/06 21:38:40 by aderison         ###   ########.fr       */
+/*   Updated: 2024/04/10 17:51:57 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -42,12 +41,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		ret[i] = s1[i];
 		i++;
 	}
-	j = 0;
-	while (s2[j] != 0)
+	j = -1;
+	while (s2[++j] != 0)
 	{
 		ret[i] = s2[j];
 		i++;
-		j++;
 	}
 	ret[size] = 0;
 	return (ret);
