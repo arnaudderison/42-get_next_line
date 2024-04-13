@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 18:59:42 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/10 17:55:58 by aderison         ###   ########.fr       */
+/*   Created: 2023/12/10 18:59:42 by aderison          #+#    #+#             */
+/*   Updated: 2024/04/13 11:21:02 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,12 @@ char	*clean_buffer(char *line, char **buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[FOPEN_MAX];
+	static char	*buffer[OPEN_MAX];
 	char		*tmp_buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT32_MAX)
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0
+		|| BUFFER_SIZE >= INT32_MAX)
 		return (NULL);
 	tmp_buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!tmp_buffer)

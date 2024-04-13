@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 19:16:53 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/10 16:44:33 by aderison         ###   ########.fr       */
+/*   Created: 2023/12/10 19:16:53 by aderison          #+#    #+#             */
+/*   Updated: 2024/04/13 11:15:39 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdio.h> //delete
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 

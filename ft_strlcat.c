@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 08:44:49 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/10 14:07:12 by aderison         ###   ########.fr       */
+/*   Created: 2023/09/08 08:44:49 by aderison          #+#    #+#             */
+/*   Updated: 2024/04/13 11:13:54 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

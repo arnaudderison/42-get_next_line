@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aderison <aderison@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 19:16:53 by arnaud            #+#    #+#             */
-/*   Updated: 2024/04/10 17:51:22 by aderison         ###   ########.fr       */
+/*   Created: 2023/12/10 19:16:53 by aderison          #+#    #+#             */
+/*   Updated: 2024/04/13 11:16:51 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # include <limits.h>
-# include <stdio.h> //delete
 # include <stdlib.h>
 # include <unistd.h>
 
