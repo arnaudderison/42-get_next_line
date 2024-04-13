@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:38:19 by aderison          #+#    #+#             */
-/*   Updated: 2024/04/13 11:15:01 by aderison         ###   ########.fr       */
+/*   Updated: 2024/04/13 13:49:49 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,6 @@ char	*ft_strchr(const char *str, int charac)
 	if (*str == charac)
 		return ((char *)str);
 	return (NULL);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	size_t			i;
-	unsigned char	*ptr;
-
-	if (!s)
-		return ;
-	ptr = (unsigned char *)s;
-	i = -1;
-	while (++i < n)
-		ptr[i] = '\0';
 }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)

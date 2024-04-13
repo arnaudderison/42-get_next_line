@@ -6,7 +6,7 @@
 /*   By: aderison <aderison@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:59:42 by aderison          #+#    #+#             */
-/*   Updated: 2024/04/13 11:21:02 by aderison         ###   ########.fr       */
+/*   Updated: 2024/04/13 13:48:08 by aderison         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ static char	*ft_join_free(char **s1, char *s2)
 	char	*ret;
 
 	if (*s1)
+	{
 		ret = ft_strjoin(*s1, s2);
+		free(*s1);
+	}
 	else
 		ret = ft_strjoin("", s2);
-	free(*s1);
 	return (ret);
 }
 
